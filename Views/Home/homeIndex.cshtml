@@ -1,0 +1,725 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Güney Alışveriş Merkezi, online alışveriş imkanı sunan bir platformdur.">
+    <meta name="author" content="Güney Alışveriş Merkezi">
+    <title>GÜNEY ALIŞVERİŞ MERKEZİ</title>
+
+    <!-- Dış stil dosyasının doğru bağlanması -->
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (eğer kullanıyorsanız) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GÜNEY ALIŞVERİŞ MERKEZİ</title>
+    @*<style>
+          /* İçeriğin kenarlara çarpmasını engellemek için padding ayarı */
+        .body-content {
+            margin-top: 15px; /* Üstten 15px boşluk */
+            padding-left: 15px; /* Sol tarafta 15px padding */
+            padding-right: 15px; /* Sağ tarafta 15px padding */
+        }
+
+        /* Bootstrap'ın varsayılan davranışını değiştirme: yatay açıklama listelerinde terimleri
+           solda sığmıyorsa kesmesini engelleme */
+        .dl-horizontal dt {
+            white-space: normal; /* Yazının taşmasını engelleme */
+        }
+
+        /* Form input elemanları için genişlik ayarı: varsayılan olarak %100 genişliğe sahiptirler,
+           burada maksimum genişliği ayarlıyoruz */
+        input,
+        select,
+        textarea {
+            max-width: 280px; /* Maksimum genişlik 280px */
+        }
+
+        /* Genel stil ayarları */
+        body {
+            font-family: Arial, sans-serif; /* Yazı fontu Arial ve sans-serif */
+            margin: 0; /* Sayfanın kenar boşluklarını sıfırlama */
+            padding: 0; /* Sayfanın iç padding'ini sıfırlama */
+            line-height: 1.6; /* Satır yüksekliğini 1.6 yapma */
+        }
+
+        /* Header (başlık) için stil */
+        header {
+            background-color: #f8f9fa; /* Arka plan rengini açık gri beyaz yapma */
+            border-bottom: 1px solid #ddd; /* Alt kısıma ince gri bir çizgi ekleme */
+            padding: 10px 0; /* Üst ve alt kısımdan 10px padding */
+        }
+
+        /* Container (kapsayıcı) stil ayarları */
+        .container {
+            width: 100%; /* Tam genişlik */
+            max-width: 1400px; /* Maksimum genişlik 1400px */
+            margin: 0 auto; /* Ortalamak için */
+            padding: 0 20px; /* Sol ve sağ padding */
+        }
+
+        /* Header içindeki tüm öğeleri flexbox düzeniyle hizalama */
+        .header-container {
+            display: flex; /* Flex düzeni */
+            align-items: center; /* Yatayda ortalama */
+            justify-content: space-between; /* Eşit boşluk bırakma */
+            gap: 15px; /* Elemanlar arasında 15px boşluk */
+        }
+
+        /* Logo için stil */
+        .header-logo img {
+            max-height: 50px; /* Logo yüksekliğini 50px'ye sınırlandırma */
+        }
+
+        /* Arama alanı için stil */
+        .header-search {
+            flex-grow: 1; /* Arama alanının genişlemesini sağlar */
+            display: flex; /* Flex düzeni */
+            align-items: center; /* Yatayda ortalama */
+            gap: 10px; /* Elemanlar arasında 10px boşluk */
+        }
+
+        /* Arama input kutusunun stil ayarları */
+        .header-search__field {
+            max-width: 650px; /* Maksimum genişlik 650px */
+            flex-grow: 1; /* Arama kutusunun genişlemesini sağlar */
+            padding: 10px; /* 10px padding */
+            border: 1px solid #ccc; /* Gri bir kenarlık */
+            border-radius: 30px; /* Yuvarlak köşeler */
+        }
+
+        /* Arama butonunun stil ayarları */
+        .header-search__button {
+            background-color: #007bff; /* Buton rengi mavi */
+            color: #fff; /* Yazı rengi beyaz */
+            border: none; /* Kenar çizgisi yok */
+            padding: 10px 15px; /* 10px üst-alt, 15px sağ-sol padding */
+            border-radius: 30px; /* Yuvarlak köşeler */
+            cursor: pointer; /* İmleç pointer olmalı */
+        }
+
+        /* Dropdown menü stil ayarları */
+        .dropdown {
+            position: relative; /* Konumlandırmayı doğru yapabilmek için */
+        }
+
+        .dropdown-content {
+            display: none; /* Menü başlangıçta gizli */
+            position: absolute; /* Menü konumlandırması */
+            background-color: #f1f1f1; /* Açılır menü arka plan rengi */
+            min-width: 200px; /* Menü genişliği */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Menü etrafında gölge */
+            z-index: 1; /* Üstte görünmesini sağlar */
+            border-radius: 8px; /* Yuvarlak köşeler */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block; /* Hover ile menüyü göster */
+        }
+
+        /* Dropdown menüdeki linkler için stil ayarları */
+        .dropdown-content a {
+            color: black; /* Yazı rengi siyah */
+            padding: 10px 15px; /* Padding */
+            text-decoration: none; /* Alt çizgi kaldırılır */
+            display: block; /* Bloğun içinde görünür */
+            border-radius: 8px; /* Yuvarlak köşeler */
+        }
+
+            /* Dropdown menüdeki linklerin üzerine gelince arka planı değiştirme */
+            .dropdown-content a:hover {
+                background-color: #ddd; /* Hover ile arka plan rengi gri olur */
+            }
+
+        /* Hesap, Favoriler, Sepet için stil */
+        .header-right-items {
+            display: flex; /* Flex düzeni */
+            align-items: center; /* Yatayda ortalama */
+            gap: 20px; /* Elemanlar arasında 20px boşluk */
+        }
+
+        /* Navbar menü öğeleri için stil */
+        nav {
+            background-color: #f8f9fa; /* Arka plan rengi açık gri beyaz */
+            padding: 10px 0; /* Padding */
+            border-bottom: 1px solid #ddd; /* Alt kenara ince çizgi */
+        }
+
+        .nav-container {
+            display: flex; /* Flex düzeni */
+            justify-content: space-between; /* Alanı eşit şekilde dağıtma */
+            align-items: center; /* Yatayda ortalama */
+        }
+
+        /* Menü öğelerinin stil ayarları */
+        .nav-item {
+            position: relative; /* Konumlandırma için */
+            color: #333; /* Yazı rengi koyu gri */
+            padding: 10px 10px; /* Padding */
+            cursor: pointer; /* Tıklanabilir göster */
+            text-align: center; /* Metin ortalanmış */
+            border-radius: 25px; /* Yuvarlak köşeler */
+            display: flex; /* Flex düzeni */
+            align-items: center; /* Yatayda ortalama */
+            gap: 10px; /* Elemanlar arasında 10px boşluk */
+        }
+
+            /* Menü öğesine hover efekti */
+            .nav-item:hover {
+                background-color: #ddd; /* Arka plan rengi gri olur */
+            }
+
+            /* Menü öğesindeki resim için stil ayarları */
+            .nav-item img {
+                width: 30px; /* Genişlik 30px */
+                height: 30px; /* Yükseklik 30px */
+                border-radius: 50%; /* Yuvarlak hale getirme */
+            }
+
+        /* Alt başlıklar için stil */
+        .sub-menu {
+            display: none; /* Başlangıçta gizli */
+            position: absolute; /* Konumlandırma için */
+            top: 100%; /* Altına yerleştirme */
+            left: 0; /* Sol tarafına hizalama */
+            background-color: #f1f1f1; /* Arka plan rengi */
+            min-width: 200px; /* Minimum genişlik */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Gölgeleme */
+            z-index: 1; /* Üstte görünmesini sağlama */
+            border-radius: 8px; /* Yuvarlak köşeler */
+        }
+
+        .nav-item:hover .sub-menu {
+            display: block; /* Hover ile alt menüyü gösterme */
+        }
+
+        /* Alt menüdeki linklerin stil ayarları */
+        .sub-menu a {
+            color: black; /* Yazı rengi siyah */
+            padding: 10px 15px; /* Padding */
+            text-decoration: none; /* Alt çizgi kaldırma */
+            display: block; /* Bloğun içinde görünür */
+            border-radius: 8px; /* Yuvarlak köşeler */
+        }
+
+            /* Alt menüdeki linklerin üzerine gelince arka planı değiştirme */
+            .sub-menu a:hover {
+                background-color: #ddd; /* Arka plan rengi gri olur */
+            }
+
+        /* İndirim banner'ı için stil */
+        .discount-banner {
+            background-color: #f1f1f1; /* Arka plan rengi */
+            padding: 5px 0; /* Padding */
+            margin-top: 0; /* Üstten boşluk bırakma */
+        }
+
+        /* İndirim başlığı için stil */
+        .discount-container {
+
+            margin: 0 auto; /* Ortalamak için */
+            text-align: center; /* Metni ortalama */
+        }
+
+        /* İndirim başlığının stil ayarları */
+        .discount-title {
+            font-size: 32px; /* Yazı boyutu 32px */
+            font-weight: bold; /* Kalın yazı */
+            color: #007bff; /* Mavi renk */
+            text-transform: uppercase; /* Büyük harf kullanımı */
+            letter-spacing: 10px; /* Harfler arasına boşluk */
+        }
+
+        .carousel-section {
+            overflow: hidden;
+            padding: 30px 0;
+            background-color: #f8f9fa;
+        }
+
+        .carousel-container {
+            display: flex;
+            gap: 20px;
+            animation: slide-left 10s linear infinite;
+            position: relative; /* Konumlandırma ekleyin */
+        }
+
+        .carousel-item {
+            width: 450px; /* Genişliği 150px olarak ayarladık */
+            height: 150px; /* Yüksekliği de orantılı olması için 150px olarak ayarladık */
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+            .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        /* Animasyon: sola kayma */
+        @keyframes slide-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+
+            </style>*@
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Header içeriği -->
+            <div class="header-container">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a href="#">
+                        <img src="/Models/Slider/alısverıss.png" alt="GÜNEY ALIŞVERİŞ MERKEZİ">
+                    </a>
+                </div>
+
+                <!-- Arama Kutusu -->
+                <div class="header-search">
+                    <!-- Dropdown Menü -->
+                    <div class="dropdown">
+                        <a href="#">TÜMÜ</a>
+                        <div class="dropdown-content">
+                            <a href="#">Kategori 1</a>
+                            <a href="#">Kategori 2</a>
+                            <a href="#">Kategori 3</a>
+                            <a href="#">Kategori 4</a>
+                        </div>
+                    </div>
+                    <input type="text" name="s" class="header-search__field" placeholder="Aradığınız ürünü yazınız" autocomplete="off">
+                    <button type="submit" class="header-search__button">Ara</button>
+                </div>
+
+                <!-- Hesap, Favoriler, Sepet -->
+                <div class="header-right-items">
+                    <a href="#">Hoşgeldiniz <br />Giriş yap / Kayıt ol</a>
+                    <a href="#">Hesabım <img src="~/Models/Slider/person Icons.png" alt="Hesap İkonu"></a>
+                    <a href="#">Favoriler <img src="~/Models/Slider/Ekran görüntüsü 2024-12-14 185623.png" alt="Favoriler İkonu"></a>
+                    <a href="#">Sepetim <img src="~/Models/Slider/sepet Icons.png" alt="Sepet İkonu"></a>
+                </div>
+
+            </div>
+
+            <!-- Navbar -->
+            <nav>
+                <div class="nav-container">
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/kategorı sımge .png" alt="Kategori Resmi">
+                        Kategoriler
+                        <div class="sub-menu">
+                            <a href="#"><img src="~/Models/Slider/anne ve cocuk ıcon.png" alt="Ayakkabı & Çanta Resmi">Anne & Çocuk</a>
+                            <a href="#"><img src="~/Models/Slider/ayakabı-canta-ıcon.png" alt="Ayakkabı & Çanta Resmi">Ayakkabı & Çanta</a>
+                            <a href="#"><img src="~/Models/Slider/elektronık Icons.png" alt="Ayakkabı & Çanta Resmi">Elektronik</a>
+                            <a href="#"><img src="~/Models/Slider/erkek-ıcon.png" alt="Ayakkabı & Çanta Resmi">Erkek</a>
+                            <a href="#"><img src="~/Models/Slider/ev-yasam-ıcon.png" alt="Ayakkabı & Çanta Resmi">Ev & Yaşam</a>
+                            <a href="#"><img src="~/Models/Slider/kadın-ıcon.png" alt="Ayakkabı & Çanta Resmi">Kadın</a>
+                            <a href="#"><img src="~/Models/Slider/kozmetık-ıcon.png" alt="Ayakkabı & Çanta Resmi">Kozmetik</a>
+                            <a href="#"><img src="~/Models/Slider/supermarket-ıcon.png" alt="Ayakkabı & Çanta Resmi">Süpermarket</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/anne ve cocuk ıcon.png" alt="Anne & Çocuk Resmi">
+                        Anne & Çocuk
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/ayakabı-canta-ıcon.png" alt="Ayakkabı & Çanta Resmi">
+                        Ayakkabı & Çanta
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/elektronık Icons.png" alt="Elektronik Resmi">
+                        Elektronik
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/erkek-ıcon.png" alt="Erkek Resmi">
+                        Erkek
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/ev-yasam-ıcon.png" alt="Ev & Yaşam Resmi">
+                        Ev & Yaşam
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/kadın-ıcon.png" alt="Kadın Resmi">
+                        Kadın
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/kozmetık-ıcon.png" alt="Kozmetik Resmi">
+                        Kozmetik
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <img src="~/Models/Slider/supermarket-ıcon.png" alt="Süpermarket Resmi">
+                        Süpermarket
+                        <div class="sub-menu">
+                            <a href="#">Ürün 1</a>
+                            <a href="#">Ürün 2</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- İndirimler Banner -->
+    <div class="discount-banner">
+        <div class="discount-container">
+            <div class="discount-title">
+                İndirimler Başladı!
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Yeni Section: Carousel -->
+    <div class="container" style="position: relative;">
+        <!-- Sol buton -->
+
+
+        <div class="d-flex flex-row flex-nowrap justify-content-start" id="carousel-slid" style="gap: 20px; overflow-x: auto; padding-bottom: 10px; display: flex;">
+            <!-- Kartlar - Aynı kart sayısına devam ediyoruz -->
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+            <div class="card flex-row align-items-center mb-3" style="width: 8rem; height: 8rem; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                <img src="~/Models/Slider/person Icons.png" class="rounded-circle" alt="..." style="width: 4rem; height: 4rem;">
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <section class="black-background">
+        <!-- İlk satır görselleri -->
+        <div class="row">
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/lınk tıcaret.png" alt="Link 1" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/dıv-gorsel.png" alt="Link 2" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/dıv-gorsel2.png" alt="Link 3" class="link-image">
+            </a>
+        </div>
+
+        <!-- İkinci satır görselleri -->
+        <div class="row">
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/dıv-gorsel3.png" alt="Link 4" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/dıv-gorsel4.png" alt="Link 5" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/dıv-gorsel5.png" alt="Link 6" class="link-image">
+            </a>
+        </div>
+    </section>
+
+
+    <div class="slider">
+        <!-- Sol div: 300px genişliğinde, içinde görsel olacak -->
+        <div class="left-div">
+            <img src="~/Models/Slider/gununFırsatı-ıcon.png" alt="Image" class="left-image">
+        </div>
+
+        <!-- Sağ div: Görsellerin kayacağı alan -->
+        <div class="right-div">
+            <div class="image-wrapper">
+                <div class="image-item"><img src="~/Models/Slider/magza-1.png" alt="Image 1"></div>
+                <div class="image-item"><img src="~/Models/Slider/magza-2.png" alt="Image 2"></div>
+                <div class="image-item"><img src="~/Models/Slider/magza-3.png" alt="Image 3"></div>
+                <div class="image-item"><img src="~/Models/Slider/magza-4.png" alt="Image 4"></div>
+                <div class="image-item"><img src="~/Models/Slider/kategorı sımge .png" alt="Image 5"></div>
+            </div>
+        </div>
+
+        <!-- Sol ve Sağ ok butonları -->
+        <button class="arrow-button prev-button">&#10094;</button> <!-- Sol ok -->
+        <button class="arrow-button next-button">&#10095;</button> <!-- Sağ ok -->
+    </div>
+
+
+
+
+
+
+    <!-- Diğer HTML içeriğiniz -->
+    <!-- JS kodu buraya yazılacak -->
+    <script>
+        let currentIndex = 0;  // Başlangıçtaki görsel indeksi
+        const images = document.querySelectorAll('.image-item');  // Görselleri seç
+        const totalImages = images.length;  // Görsel sayısını al
+        const imageWrapper = document.querySelector('.image-wrapper'); // Görsel konteynerini seç
+
+        // Sol buton fonksiyonu
+        document.querySelector('.prev-button').addEventListener('click', function () {
+            // Sol butona basıldığında bir görsel geri kaydır
+            currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+            updateSlider();
+        });
+
+        // Sağ buton fonksiyonu
+        document.querySelector('.next-button').addEventListener('click', function () {
+            // Sağ butona basıldığında bir görsel ileri kaydır
+            currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+            updateSlider();
+        });
+
+        // Kaydırma fonksiyonu
+        function updateSlider() {
+            // Görsellerin kaymasını sağlamak için translateX ile kaydırma işlemi
+            const newTransformValue = -currentIndex * 100;  // Görsellerin tam olarak bir görsel kadar kayması için %100
+            imageWrapper.style.transition = 'transform 0.5s ease';  // Kayma efekti ekle
+            imageWrapper.style.transform = `translateX(${newTransformValue}%)`;
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <section class="black-background">
+        <!-- İlk satır görselleri -->
+        <div class="row">
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="link-image">
+            </a>
+        </div>
+        <div class="row">
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="link-image">
+            </a>
+            <a href="#" class="image-box">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="link-image">
+            </a>
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <div class="slider">
+        <!-- Sol div: 300px genişliğinde, içinde görsel olacak -->
+        <div class="left-div">
+            <img src="~/Models/Slider/gununFırsatı-ıcon.png" alt="Image" class="left-image">
+        </div>
+
+        <!-- Sağ div: Görsellerin kayacağı alan -->
+        <div class="right-div">
+            <div class="image-wrapper">
+                <div class="image-item"><img src="~/Models/Slider/magza-1.png" alt="Image 1"></div>
+                <div class="image-item"><img src="~/Models/Slider/magza-2.png" alt="Image 2"></div>
+                <div class="image-item"><img src="~/Models/Slider/magza-3.png" alt="Image 3"></div>
+                <div class="image-item"><img src="~/Models/Slider/magza-4.png" alt="Image 4"></div>
+                <div class="image-item"><img src="~/Models/Slider/kategorı sımge .png" alt="Image 5"></div>
+            </div>
+        </div>
+
+        <!-- Sol ve Sağ ok butonları -->
+        <button class="arrow-button prev-button">&#10094;</button> <!-- Sol ok -->
+        <button class="arrow-button next-button">&#10095;</button> <!-- Sağ ok -->
+    </div>
+
+
+
+
+
+
+    <!-- Diğer HTML içeriğiniz -->
+    <!-- JS kodu buraya yazılacak -->
+    <script>
+        let currentIndex = 0;  // Başlangıçtaki görsel indeksi
+        const images = document.querySelectorAll('.image-item');  // Görselleri seç
+        const totalImages = images.length;  // Görsel sayısını al
+        const imageWrapper = document.querySelector('.image-wrapper'); // Görsel konteynerini seç
+
+        // Sol buton fonksiyonu
+        document.querySelector('.prev-button').addEventListener('click', function () {
+            // Sol butona basıldığında bir görsel geri kaydır
+            currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
+            updateSlider();
+        });
+
+        // Sağ buton fonksiyonu
+        document.querySelector('.next-button').addEventListener('click', function () {
+            // Sağ butona basıldığında bir görsel ileri kaydır
+            currentIndex = (currentIndex === totalImages - 1) ? 0 : currentIndex + 1;
+            updateSlider();
+        });
+
+        // Kaydırma fonksiyonu
+        function updateSlider() {
+            // Görsellerin kaymasını sağlamak için translateX ile kaydırma işlemi
+            const newTransformValue = -currentIndex * 100;  // Görsellerin tam olarak bir görsel kadar kayması için %100
+            imageWrapper.style.transition = 'transform 0.5s ease';  // Kayma efekti ekle
+            imageWrapper.style.transform = `translateX(${newTransformValue}%)`;
+        }
+
+
+    </script>
+
+
+
+
+
+    <section class="small-background">
+        <!-- İlk satır görselleri -->
+        <div class="image-row">
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="image-link">
+            </a>
+        </div>
+        <div class="image-row">
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="image-link">
+            </a>
+        </div>
+
+        <div class="image-row">
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="image-link">
+            </a>
+        </div>
+
+        <div class="image-row">
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="image-link">
+            </a>
+        </div>
+
+        <div class="image-row">
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı1.png" alt="Link 1" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı2.png" alt="Link 2" class="image-link">
+            </a>
+            <a href="#" class="image-container">
+                <img src="~/Models/Slider/teklısatır-alısverı3.png" alt="Link 3" class="image-link">
+            </a>
+        </div>
+    </section>
+
+
+
+
+
+</body>
+
+</html>

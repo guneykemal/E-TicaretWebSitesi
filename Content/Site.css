@@ -1,0 +1,648 @@
+﻿
+/* İçeriğin kenarlara çarpmasını engellemek için padding ayarı */
+.body-content {
+    margin-top: 15px; /* Üstten 15px boşluk */
+    padding-left: 15px; /* Sol tarafta 15px padding */
+    padding-right: 15px; /* Sağ tarafta 15px padding */
+}
+
+/* Bootstrap'ın varsayılan davranışını değiştirme: yatay açıklama listelerinde terimleri  
+       solda sığmıyorsa kesmesini engelleme */
+.dl-horizontal dt {
+    white-space: normal; /* Yazının taşmasını engelleme */
+}
+
+/* Form input elemanları için genişlik ayarı: varsayılan olarak %100 genişliğe sahiptirler,  
+       burada maksimum genişliği ayarlıyoruz */
+input,
+select,
+textarea {
+    max-width: 280px; /* Maksimum genişlik 280px */
+}
+
+/* Genel stil ayarları */
+body {
+    font-family: Arial, sans-serif; /* Yazı fontu Arial ve sans-serif */
+    margin: 0; /* Sayfanın kenar boşluklarını sıfırlama */
+    padding: 0; /* Sayfanın iç padding'ini sıfırlama */
+    line-height: 1.6; /* Satır yüksekliğini 1.6 yapma */
+}
+
+/* Header (başlık) için stil */
+header {
+    background-color: #f8f9fa; /* Arka plan rengini açık gri beyaz yapma */
+    border-bottom: 1px solid #ddd; /* Alt kısıma ince gri bir çizgi ekleme */
+    padding: 10px 0; /* Üst ve alt kısımdan 10px padding */
+}
+
+/* Container (kapsayıcı) stil ayarları */
+.container {
+    width: 100%; /* Tam genişlik */
+    max-width: 1400px; /* Maksimum genişlik 1400px */
+    margin: 0 auto; /* Ortalamak için */
+    padding: 0 20px; /* Sol ve sağ padding */
+}
+
+/* Header içindeki tüm öğeleri flexbox düzeniyle hizalama */
+.header-container {
+    display: flex; /* Flex düzeni */
+    align-items: center; /* Yatayda ortalama */
+    justify-content: space-between; /* Eşit boşluk bırakma */
+    gap: 15px; /* Elemanlar arasında 15px boşluk */
+}
+
+/* Logo için stil */
+.header-logo img {
+    max-height: 50px; /* Logo yüksekliğini 50px'ye sınırlandırma */
+}
+
+/* Arama alanı için stil */
+.header-search {
+    flex-grow: 1; /* Arama alanının genişlemesini sağlar */
+    display: flex; /* Flex düzeni */
+    align-items: center; /* Yatayda ortalama */
+    gap: 10px; /* Elemanlar arasında 10px boşluk */
+}
+
+/* Arama input kutusunun stil ayarları */
+.header-search__field {
+    max-width: 650px; /* Maksimum genişlik 650px */
+    flex-grow: 1; /* Arama kutusunun genişlemesini sağlar */
+    padding: 10px; /* 10px padding */
+    border: 1px solid #ccc; /* Gri bir kenarlık */
+    border-radius: 30px; /* Yuvarlak köşeler */
+}
+
+/* Arama butonunun stil ayarları */
+.header-search__button {
+    background-color: #007bff; /* Buton rengi mavi */
+    color: #fff; /* Yazı rengi beyaz */
+    border: none; /* Kenar çizgisi yok */
+    padding: 10px 15px; /* 10px üst-alt, 15px sağ-sol padding */
+    border-radius: 30px; /* Yuvarlak köşeler */
+    cursor: pointer; /* İmleç pointer olmalı */
+}
+
+/* Dropdown menü stil ayarları */
+.dropdown {
+    position: relative; /* Konumlandırmayı doğru yapabilmek için */
+}
+
+.dropdown-content {
+    display: none; /* Menü başlangıçta gizli */
+    position: absolute; /* Menü konumlandırması */
+    background-color: #f1f1f1; /* Açılır menü arka plan rengi */
+    min-width: 200px; /* Menü genişliği */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Menü etrafında gölge */
+    z-index: 1; /* Üstte görünmesini sağlar */
+    border-radius: 8px; /* Yuvarlak köşeler */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Hover ile menüyü göster */
+}
+
+/* Dropdown menüdeki linkler için stil ayarları */
+.dropdown-content a {
+    color: black; /* Yazı rengi siyah */
+    padding: 10px 15px; /* Padding */
+    text-decoration: none; /* Alt çizgi kaldırılır */
+    display: block; /* Bloğun içinde görünür */
+    border-radius: 8px; /* Yuvarlak köşeler */
+}
+
+    /* Dropdown menüdeki linklerin üzerine gelince arka planı değiştirme */
+    .dropdown-content a:hover {
+        background-color: #ddd; /* Hover ile arka plan rengi gri olur */
+    }
+
+/* Hesap, Favoriler, Sepet için stil */
+.header-right-items {
+    display: flex; /* Flex düzeni */
+    align-items: center; /* Yatayda ortalama */
+    gap: 20px; /* Elemanlar arasında 20px boşluk */
+}
+
+/* Navbar menü öğeleri için stil */
+nav {
+    background-color: #f8f9fa; /* Arka plan rengi açık gri beyaz */
+    padding: 10px 0; /* Padding */
+    border-bottom: 1px solid #ddd; /* Alt kenara ince çizgi */
+}
+
+.nav-container {
+    display: flex; /* Flex düzeni */
+    justify-content: space-between; /* Alanı eşit şekilde dağıtma */
+    align-items: center; /* Yatayda ortalama */
+}
+
+/* Menü öğelerinin stil ayarları */
+.nav-item {
+    position: relative; /* Konumlandırma için */
+    color: #333; /* Yazı rengi koyu gri */
+    padding: 10px 10px; /* Padding */
+    cursor: pointer; /* Tıklanabilir göster */
+    text-align: center; /* Metin ortalanmış */
+    border-radius: 25px; /* Yuvarlak köşeler */
+    display: flex; /* Flex düzeni */
+    align-items: center; /* Yatayda ortalama */
+    gap: 10px; /* Elemanlar arasında 10px boşluk */
+}
+
+    /* Menü öğesine hover efekti */
+    .nav-item:hover {
+        background-color: #ddd; /* Arka plan rengi gri olur */
+    }
+
+    /* Menü öğesindeki resim için stil ayarları */
+    .nav-item img {
+        width: 30px; /* Genişlik 30px */
+        height: 30px; /* Yükseklik 30px */
+        border-radius: 50%; /* Yuvarlak hale getirme */
+    }
+
+/* Alt başlıklar için stil */
+.sub-menu {
+    display: none; /* Başlangıçta gizli */
+    position: absolute; /* Konumlandırma için */
+    top: 100%; /* Altına yerleştirme */
+    left: 0; /* Sol tarafına hizalama */
+    background-color: #f1f1f1; /* Arka plan rengi */
+    min-width: 200px; /* Minimum genişlik */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Gölgeleme */
+    z-index: 1; /* Üstte görünmesini sağlama */
+    border-radius: 8px; /* Yuvarlak köşeler */
+}
+
+.nav-item:hover .sub-menu {
+    display: block; /* Hover ile alt menüyü gösterme */
+}
+
+/* Alt menüdeki linklerin stil ayarları */
+.sub-menu a {
+    color: black; /* Yazı rengi siyah */
+    padding: 10px 15px; /* Padding */
+    text-decoration: none; /* Alt çizgi kaldırma */
+    display: block; /* Bloğun içinde görünür */
+    border-radius: 8px; /* Yuvarlak köşeler */
+}
+
+    /* Alt menüdeki linklerin üzerine gelince arka planı değiştirme */
+    .sub-menu a:hover {
+        background-color: #ddd; /* Arka plan rengi gri olur */
+    }
+
+/* İndirim banner'ı için stil */
+.discount-banner {
+    background-color: #f1f1f1; /* Arka plan rengi */
+    padding: 5px 0; /* Padding */
+    margin-top: 0; /* Üstten boşluk bırakma */
+}
+
+/* İndirim başlığı için stil */
+.discount-container {
+    margin: 0 auto; /* Ortalamak için */
+    text-align: center; /* Metni ortalama */
+}
+
+/* İndirim başlığının stil ayarları */
+.discount-title {
+    font-size: 32px; /* Yazı boyutu 32px */
+    font-weight: bold; /* Kalın yazı */
+    color: #007bff; /* Mavi renk */
+    text-transform: uppercase; /* Büyük harf kullanımı */
+    letter-spacing: 10px; /* Harfler arasına boşluk */
+}
+
+/* Linklerin altındaki mavi çizgiyi kaldırma */
+a {
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+}
+
+/* Menü linklerinin üzerine gelindiğinde alt çizgiyi kaldırma */
+.nav-item a:hover {
+    text-decoration: none; /* Menüdeki linkler üzerine gelindiğinde alt çizgi kaldırılır */
+}
+
+/* Dropdown menüdeki linklerin altındaki çizgiyi kaldırma */
+.dropdown-content a {
+    text-decoration: none; /* Alt çizgi kaldırılır */
+}
+
+.sub-menu a {
+    text-decoration: none; /* Alt çizgi kaldırılır */
+}
+/* Yeni Section için stil */
+/* Carousel Wrapper */
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carousel-section {
+    width: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Elemanlar arasındaki boşluk */
+}
+
+.carousel-item {
+    width: calc(16.66% - 20px); /* Yatayda 6 eşit bölme */
+    max-width: 150px; /* Gerekirse genişlik sınırlanabilir */
+    aspect-ratio: 1; /* Kare oranını korur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .carousel-item a img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%; /* Daire şekli */
+        object-fit: cover; /* Görselin kapsanması */
+        transition: transform 0.3s ease;
+    }
+
+        .carousel-item a img:hover {
+            transform: scale(1.1); /* Hover efektinde büyüme */
+        }
+
+
+/* Linklerin altındaki mavi çizgileri kaldırma */
+a {
+    text-decoration: none; /* Alt çizgi kaldırılır */
+}
+
+    /* Hover efekti ekleme */
+    a:hover {
+        color: #007bff; /* Hover ile mavi renk efekti */
+    }
+
+/* Footer için stil ayarları */
+footer {
+    background-color: #f8f9fa; /* Açık gri arka plan */
+    padding: 20px 0; /* Üst ve alttan 20px padding */
+    text-align: center; /* Metni ortalama */
+    border-top: 1px solid #ddd; /* Üstte ince gri çizgi */
+}
+
+    /* Footer içindeki linklerin stil ayarları */
+    footer a {
+        color: #007bff; /* Mavi renk */
+        text-decoration: none; /* Alt çizgi kaldırılır */
+        font-weight: bold; /* Kalın yazı */
+    }
+
+        footer a:hover {
+            color: #0056b3; /* Daha koyu mavi hover efekti */
+        }
+
+/* Responsive tasarım için medya sorguları */
+
+.header-right-items a {
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* İkonlar arasındaki mesafe */
+    text-decoration: none; /* Bağlantı altını kaldırmak için */
+}
+
+.header-right-items img {
+    width: 20px; /* İkonların genişliği */
+    height: 20px; /* İkonların yüksekliği */
+    object-fit: contain; /* Resmin oranını koruyarak sığdırma */
+    margin-left: 8px; /* İkon ile metin arasındaki mesafe */
+}
+
+.carousel-container img {
+    width: 100%; /* Resmin genişliğini konteynerin genişliğine uyacak şekilde ayarlar */
+    height: auto; /* Resmin yüksekliğini orantılı olarak ayarlar */
+    object-fit: cover; /* Resmi kapsayıcıya sığdırır, fazla olan kısmı keser */
+}
+/* Header içinde arama kutusu ve buton arasındaki boşluğu azaltma */
+.header-search__field,
+.header-search__button {
+    margin-right: 10px; /* Arama kutusu ile buton arasındaki boşluk */
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.part {
+    flex: 1;
+    padding: 20px;
+    background-color: black; /* Arka plan siyah */
+    color: white; /* Yazı rengi beyaz */
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    /* Yazıyı ortalamak için aşağıdaki özellikler ekleniyor */
+    display: flex;
+    justify-content: center; /* Yatayda ortalar */
+    align-items: center; /* Dikeyde ortalar */
+    text-align: center; /* Yazıyı ortalamak için */
+}
+
+
+
+
+
+
+
+
+
+/* Siyah arka planlı bölümler */
+.black-background {
+    background-color: black; /* Section arka planı siyah */
+    padding: 20px; /* İç kenar boşlukları */
+    margin-top: 20px;
+    border-radius:20px;
+}
+
+/* Her satır için düzenleme */
+.row {
+    display: flex; /* Görselleri yatayda hizalamak için flexbox */
+    justify-content: center; /* Elemanları yatayda ortala */
+    gap: 20px; /* Her görsel kutusu arasında 20px boşluk */
+    margin-bottom: 20px; /* Satırlar arasında 20px boşluk */
+}
+
+/* Görseli saran container */
+.image-container {
+    width: 100%; /* Container genişliği */
+    height: 200px; /* Sabit yükseklik */
+    background-size: cover; /* Görseli container'a uyacak şekilde ölçeklendir */
+    background-position: center; /* Görseli ortala */
+    border-radius: 15px; /* Yuvarlak köşeler */
+    overflow: hidden; /* Radius etkisini uygulamak için taşmaları gizle */
+    display: block; /* Container'ı blok öğe olarak hizala */
+}
+
+/* Görselin sarmalayan link (a) kutusu */
+.image-box {
+    flex: 0 1 calc(33.33% - 20px); /* Görselleri yatayda 3'e bölecek şekilde genişlik */
+    box-sizing: border-box; /* Padding ve border dahil hesaplama */
+    border-radius: 15px; /* Kutulara 15px köşe yumuşatma */
+    overflow: hidden; /* Radius etkisini görsellerde de sağlamak için */
+    background-color: black; /* Kutuların arka planına hafif bir renk */
+    display: flex; /* Görselleri ortalamak için flexbox */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: center; /* Yatayda ortala */
+    text-decoration: none; /* Linklerin altını çizmesini engelle */
+}
+
+    /* Görseli uyumlu şekilde saran img */
+    .image-box img {
+        width: 100%; /* Görselin container genişliğine uyumlu olması için */
+        height: 100%; /* Görselin container yüksekliğine uyumlu olması için */
+        object-fit: cover; /* Görselin container'ı tamamen kaplayacak şekilde kırpılmasını sağlar */
+        border-radius: 15px; /* Görsele de yuvarlak köşeler eklemek için */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.border-section {
+    border: 2px solid #000; /* Border rengi ve kalınlığı */
+    padding: 50px; /* Border ile içerik arasındaki boşluk */
+}
+
+.img-container {
+    display: flex; /* Resimleri yatayda sıralar */
+    justify-content: center; /* İçeriği yatayda ortalar */
+    gap: 20px; /* Resimler arasındaki boşluk */
+}
+
+.image-item {
+    width: 100px; /* Resimlerin genişliği */
+    height: 100px; /* Resimlerin yüksekliği */
+    object-fit: cover; /* Resimleri kutuya sığdırır */
+} 
+
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carousel-section {
+    width: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Elemanlar arasındaki boşluk */
+}
+
+.carousel-item {
+    width: calc(16.66% - 20px); /* Yatayda 6 eşit bölme */
+    max-width: 150px; /* Gerekirse genişlik sınırlanabilir */
+    aspect-ratio: 1; /* Kare oranını korur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .carousel-item a img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%; /* Daire şekli */
+        object-fit: cover; /* Görselin kapsanması */
+        transition: transform 0.3s ease;
+    }
+
+        .carousel-item a img:hover {
+            transform: scale(1.1); /* Hover efektinde büyüme */
+        }
+/* Border ve Arka Plan */
+.slider-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slider-container {
+    border: 3px solid #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #333; /* Arka plan rengi */
+}
+
+.slider-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('your-background-image-url'); /* Kendi arka plan görselinizi ekleyin */
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    flex: 0 0 auto; /* Fotoğrafların sabit boyutta kalmasını sağlar */
+    margin: 10px;
+}
+
+
+
+
+/* Slider konteynerı */
+.slider {
+    display: flex; /* Yatay hizalama */
+    width: 100%; /* Genişliği tam ekran olarak ayarla */
+    height: 400px; /* Yükseklik belirle */
+    position: relative; /* Butonları konumlandırmak için */
+    overflow: hidden; /* Slider dışına taşma engellendi */
+    margin-top: 20px; /* Üstten boşluk bırakıldı */
+}
+
+/* Sol div: 300px genişliğinde */
+.left-div {
+    width: 300px; /* Sabit genişlik */
+    height: 100%; /* Yüksekliği slider'ın yüksekliği kadar yap */
+    background-color: #fff; /* Sol divin arka planını beyaz yap */
+    display: flex;
+    justify-content: center; /* Ortalamak için */
+    align-items: center; /* Ortalamak için */
+}
+
+.left-image {
+    width: 80%; /* Görselin genişliği, ihtiyaca göre ayarlanabilir */
+    height: auto; /* Yüksekliği otomatik olarak ayarla */
+}
+
+/* Sağ div: Görsellerin kayacağı alan */
+.right-div {
+    flex-grow: 1; /* Geriye kalan alanı alır */
+    height: 100%;
+    overflow: hidden; /* Görseller dışarı taşmasın */
+    position: relative;
+    display: flex; /* Dikey ortalama için flex kullanıldı */
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Sağ divin arka planını siyah yap */
+}
+
+/* Görsellerin Konteyneri */
+.image-wrapper {
+    display: flex;
+    transition: transform 0.5s ease; /* Kayma efekti */
+    height: 100%;
+}
+
+/* Görseller */
+.image-item {
+    width: 100%; /* Her görselin genişliği, slider genişliği kadar */
+    height: 100%;
+    flex-shrink: 0; /* Resimlerin boyutunu sabit tut */
+    display: flex; /* Resimleri ortalamak için */
+    justify-content: center;
+    align-items: center;
+}
+
+    .image-item img {
+        max-width: 100%; /* Görsel genişliği konteynerden taşmasın */
+        max-height: 100%; /* Görsel yüksekliği konteynerden taşmasın */
+        object-fit: contain; /* Görselleri içeride tut ve doğru orantıda boyutlandır */
+        border-radius: 20px; /* Görsellere radius ekleniyor */
+    }
+
+/* Sol ve Sağ ok butonları */
+.arrow-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+}
+
+    .arrow-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+.prev-button {
+    left: 10px; /* Sol ok */
+}
+
+.next-button {
+    right: 10px; /* Sağ ok */
+}
+.small-background {
+    background-color: #000; /* Orijinal siyah arka plan */
+    margin-top: 20px;
+    margin-left: auto; /* Yatayda ortalamak için */
+    margin-right: auto; /* Yatayda ortalamak için */
+    border-radius: 10px;
+    height: 850px;
+    width: 1000px;
+    padding-top: 20px; /* Üstten 20px boşluk ekliyoruz */
+    padding-left: 10px; /* Yatayda da biraz boşluk ekleyebiliriz */
+    padding-right: 10px; /* Yatayda da biraz boşluk ekleyebiliriz */
+    padding-bottom: 10px; /* Alt kısma da biraz boşluk ekleyebiliriz */
+    background-size: cover; /* Arka planı hem yatay hem dikeyde küçültüyoruz */
+    background-position: center; /* Arka planın merkezden başlamasını sağlıyoruz */
+    display: flex; /* Flexbox ile dikeyde de ortalama */
+    flex-direction: column; /* İçeriği dikey olarak yerleştir */
+    align-items: center; /* İçeriği yatayda ortala */
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.image-container {
+    width: 30%; /* Resimlerin daha küçük olması için genişliği ayarlıyoruz */
+    height: auto;
+}
+
+.image-link {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Resimlerin boyutunu ve oranlarını koruyarak uygun şekilde kesilir */
+}
+
